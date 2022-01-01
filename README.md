@@ -1,12 +1,15 @@
-# Goterator
+# Goterators
+[![Built with WeBuild](https://raw.githubusercontent.com/webuild-community/badge/master/svg/WeBuild.svg)](https://webuild.community) [![Go Reference](https://pkg.go.dev/badge/github.com/ledongthuc/goterators.svg)](https://pkg.go.dev/github.com/ledongthuc/goterators)
 
- - Goterator is util library that Supports agreegate & transform functions Go, including:
-   - for-each
-   - find
-   - exist
-   - reduce
-   - filter
-   - map
+![goterators-Thumbnail](https://user-images.githubusercontent.com/1828895/147859307-013e904c-af01-46cf-a70a-926756348efb.png)
+
+ - Goterators is util library that Supports aggregate & transforms functions Go, including:
+   - [for-each](#for-each)
+   - [find](#find)
+   - [exist](#exist)
+   - [reduce](#reduce)
+   - [filter](#filter)
+   - [map](#map)
  - API and functions are inspired from Rust and Javascript.
 
 # Requirement
@@ -17,7 +20,7 @@
 
 This assumes you already have a working Go environment.
 
-Use Go get to pull goterator for using
+Use Go get to pull goterators for using
 
 ```
 go get github.com/ledongthuc/goterators
@@ -34,6 +37,8 @@ import "github.com/ledongthuc/goterators"
 # Functions
 
 ## For-each
+
+![goterators-ForEach](https://user-images.githubusercontent.com/1828895/147859215-163a0bc2-9973-444d-ad3c-310e28a9e946.png)
 
  - For-each function act the same `for` in Go. Just another option to loop through items in a list.
 
@@ -53,6 +58,8 @@ ForEach(list3, func(item MyStruct) {
 
 ## Find
 
+![goterators-Find](https://user-images.githubusercontent.com/1828895/147859217-fe781367-2476-4022-b1e9-cfa66b09aec4.png)
+
  - Find function return first element of the list that meets function condition. In case no element meet the condition function, return the error "Not Found".
 
 ```go
@@ -71,6 +78,8 @@ matchedStruct, err := Find(list, func(item MyStruct) bool {
 
 ## Exist
 
+![goterators-Exist](https://user-images.githubusercontent.com/1828895/147859220-347a8b01-7f64-42ba-86ab-2e49813bdab1.png)
+
  - Exist check an existence of element in the list
 
 ```go
@@ -82,6 +91,8 @@ matchedStruct, err := Exist(list, SearchingStruct)
 ```
 
 ## Reduce
+
+![goterators-Reduce](https://user-images.githubusercontent.com/1828895/147859223-04fc1e93-6e5c-405c-8c4b-df7322bceca9.png)
 
  - Similar to Fold Left, Reduce function run the reducer function on each element of array. In order, the reduce function passes in the return value from calculation on the preceding element.  The final result of running the reducer across all elements of the array is the return value of final reducer on last element.
  - Reduce function has 3 parameters:
@@ -103,6 +114,8 @@ items := Reduce(testSource, []float64{}, func(previous []float64, current int, i
 
 ## Filter
 
+![goterators-Filter](https://user-images.githubusercontent.com/1828895/147859226-1d5ca403-f220-43c8-8c78-c8b825521355.png)
+
  - Filter function filters items that meets function condition
 
 ```go
@@ -120,6 +133,8 @@ filteredItems, err := Filter(list, func(item MyStruct) bool {
 ```
 
 ## Map
+
+![goterators-Map](https://user-images.githubusercontent.com/1828895/147859230-05adb8fb-5ae1-4970-8af5-4306a8718910.png)
 
  - Map function convert items in the list to output list
 
