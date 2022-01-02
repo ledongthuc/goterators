@@ -32,7 +32,7 @@ func TestFlatNested(t *testing.T) {
 
 		for index := range expectedItems[groupIndex] {
 			if expectedItems[groupIndex][index] != actualItems[groupIndex][index] {
-				t.Errorf("Index %v, expected = %v, actual = %v", index, expectedItems[groupIndex][index], actualItems[groupIndex][index])
+				t.Errorf("Group index %v, Index %v, expected = %v, actual = %v", groupIndex, index, expectedItems[groupIndex][index], actualItems[groupIndex][index])
 			}
 		}
 	}

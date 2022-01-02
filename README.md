@@ -194,6 +194,18 @@ valid := Some(list, func(item int) bool { item % 2 == 0 })
 valid := Some(list, func(item string) bool { len(item) < 20 }) 
 ```
 
+## Group
+
+![goterators-Group](https://user-images.githubusercontent.com/1828895/147878206-bef39880-96db-4269-b54e-2dcbb06f6bac.png)
+
+ - Group function group elements into nested list by group condition.
+
+```
+groups := Group(list, func(item Product) groupKey {
+   return item.ComposeGroupKey()
+}) // Group contains [ [ Product1, Product2, Product3 ], [ Product4, Product5 ] ]
+```
+
 ## Flat
 
 ![goterators-Flat](https://user-images.githubusercontent.com/1828895/147876403-25e84044-d761-45b7-b126-6ad8a7c5a4d1.png)
