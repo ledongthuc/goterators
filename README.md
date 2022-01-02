@@ -3,7 +3,7 @@
 
 ![goterators-Thumbnail](https://user-images.githubusercontent.com/1828895/147876484-5bc7cfd0-5f14-4889-a3f0-64cb307b7765.png)
 
- - Goterators is util library that Supports aggregate & transforms functions Go, including:
+ - Goterators is util library that support aggregate & transforms functions list in Go, including:
    - [for-each](#for-each)
    - [find](#find)
    - [exist](#exist)
@@ -15,7 +15,7 @@
    - [some](#some)
    - [flat](#flat)
 
- - API and functions are inspired from Rust and Javascript.
+ - The API and functions are inspired by Rust and Javascript.
 
 # Requirement
 
@@ -45,7 +45,7 @@ import "github.com/ledongthuc/goterators"
 
 ![goterators-ForEach](https://user-images.githubusercontent.com/1828895/147876359-432c3122-25f3-492e-844d-6172eafe92a6.png)
 
- - For-each function act the same `for` in Go. Just another option to loop through items in a list.
+ - For-each function does the same `for` in Go. Just another option to loop through items in a list.
 
 ```go
 ForEach(list1, func(item int) {
@@ -65,7 +65,7 @@ ForEach(list3, func(item MyStruct) {
 
 ![goterators-Find](https://user-images.githubusercontent.com/1828895/147876363-245705c5-2aa8-4135-8d29-5cbaca173529.png)
 
- - Find function return first element and its index in the list that meets function condition. In case no element meet the condition function, return the error "Not Found".
+ - Find function returns the first element and its index in the list that meets the functional condition. If no element meet the condition function, return the error "Not Found".
 
 ```go
 matchedInt, index, err := Find(list, func(item int) bool {
@@ -85,7 +85,7 @@ matchedStruct, index, err := Find(list, func(item MyStruct) bool {
 
 ![goterators-Exist](https://user-images.githubusercontent.com/1828895/147876367-c0c7fd50-1888-4152-a7c8-5960ca26b6d9.png)
 
- - Exist check an existence of element in the list
+ - Exist function checks the existence of an element in the list.
 
 ```go
 matchedInt, err := Exist(list, 1)
@@ -99,11 +99,11 @@ matchedStruct, err := Exist(list, SearchingStruct)
 
 ![goterators-Reduce](https://user-images.githubusercontent.com/1828895/147876373-4cb1f784-b9d4-4b95-a4f9-30709ba3690d.png)
 
- - Similar to Fold Left, Reduce function run the reducer function on each element of array. In order, the reduce function passes in the return value from calculation on the preceding element.  The final result of running the reducer across all elements of the array is the return value of final reducer on last element.
+ - Similar to Fold Left, Reduce function runs the reducer function on each element of the array. In order, the reduce function passes in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is the return value of the final reducer on the last element.
  - Reduce function has 3 parameters:
    - list: source list we want to process.
-   - initial value: the previous value that's used in reducer call of first element. At this time, previous = initial value, current = first element of list.
-   - reducer function: the function will run on all elements of source list.
+   - initial value: the previous value that's used in the reducer call of the first element. At this time, previous = initial value, current = first element of the list.
+   - reducer function: the function will run on all elements of the source list.
 
 ```go
 // Sum
@@ -121,11 +121,11 @@ items := Reduce(testSource, []float64{}, func(previous []float64, current int, i
 
 ![goterators-Reduce right](https://user-images.githubusercontent.com/1828895/147876376-1f168d48-3ba5-4d44-aa0a-4e1c36505be5.png)
 
- - Similar to Fold Right, Reduce function run the reducer function on each element of array, from last to first element. In order, the reduce function passes in the return value from calculation on the preceding element. The final result of running the reducer across all elements of the array is the return value of final reducer on first element.
+ - Similar to Fold Right, Reduce right function run the reducer function on each element of the array, from last to the first element. In order, the reduce function passes in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is the return value of the final reducer on the first element.
  - Reduce function has 3 parameters:
    - list: source list we want to process.
-   - initial value: the previous value that's used in reducer call of last element. At this time, previous = initial value, current = last element of list.
-   - reducer function: the function will run on all elements of source list.
+   - initial value: the previous value that's used in the reducer call of the last element. At this time, previous = initial value, current = last element of list.
+   - reducer function: the function will run on all elements of the source list.
 
 ```go
 // Reverse
@@ -138,7 +138,7 @@ reversedList := Reduce(list, []string{}, func(previous []string, current string,
 
 ![goterators-Filter](https://user-images.githubusercontent.com/1828895/147876377-6df6ea14-6fb7-478c-9671-e6ca7c6e2a97.png)
 
- - Filter function filters items that meets function condition
+ - Filter function return items that pass the filter function.
 
 ```go
 filteredItems, err := Filter(list, func(item int) bool {
@@ -158,7 +158,7 @@ filteredItems, err := Filter(list, func(item MyStruct) bool {
 
 ![goterators-Map](https://user-images.githubusercontent.com/1828895/147876383-5d701c6e-fb65-442f-b5ed-e97d30c23115.png)
 
- - Map function convert items in the list to output list
+ - Map function converts items in the list to the output list.
 
 ```go
 mappedItems := Map(testSource, func(item int64) float64 {
@@ -174,7 +174,7 @@ prices := Map(testSource, func(item Order) Price {
 
 ![goterators-Every](https://user-images.githubusercontent.com/1828895/147876387-520ee3b5-2846-4052-ad35-dd57d8741bd1.png)
 
- - Every function check all elements in the list meet the condition, return true. Otherwise, return false.
+ - Every function checks all elements in the list with condition function. If it's yes return true; otherwise, return false.
 
 ```go
 valid := Every(list, func(item int) bool { item % 2 == 0 }) 
@@ -198,7 +198,7 @@ valid := Some(list, func(item string) bool { len(item) < 20 })
 
 ![goterators-Group](https://user-images.githubusercontent.com/1828895/147878206-bef39880-96db-4269-b54e-2dcbb06f6bac.png)
 
- - Group function group elements into nested list by group condition.
+ - Group groups elements into the nested level. Use a build-group function to define group type.
 
 ```
 groups := Group(list, func(item Product) groupKey {
@@ -210,7 +210,7 @@ groups := Group(list, func(item Product) groupKey {
 
 ![goterators-Flat](https://user-images.githubusercontent.com/1828895/147876403-25e84044-d761-45b7-b126-6ad8a7c5a4d1.png)
 
- - Flat function return new array with all sub-array elements concatenated with 1 level depth.
+ - Flat returns a new array with all sub-array elements concatenated with 1 level depth.
 
 ```go
 output := Flat([][]int{{1,2}, {3}}) // output = {1,2,3}
