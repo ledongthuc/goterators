@@ -1,10 +1,10 @@
 package goterators
 
-func Find[T any](source []T, matchedItemFunc func(item T) bool) (t T, err error) {
-	for _, item := range source {
+func Find[T any](source []T, matchedItemFunc func(item T) bool) (t T, index int, err error) {
+	for index, item := range source {
 		if matchedItemFunc(item) {
-			return item, nil
+			return item, index, nil
 		}
 	}
-	return t, ErrNotFound
+	return t, -1, ErrNotFound
 }
