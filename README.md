@@ -13,6 +13,7 @@
    - [map](#map)
    - [every](#every)
    - [some](#some)
+   - [group](#group)
    - [flat](#flat)
 
  - The API and functions are inspired by Rust and Javascript.
