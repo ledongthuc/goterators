@@ -6,7 +6,6 @@
  - Goterators is util library that support aggregate & transforms functions list in Go, including:
    - [for-each](#for-each)
    - [find](#find)
-   - [exist](#exist)
    - [reduce](#reduce)
    - [reduce right](#reduce-right)
    - [filter](#filter)
@@ -15,6 +14,8 @@
    - [some](#some)
    - [group](#group)
    - [flat](#flat)
+   - [exist](#exist)
+   - [include](#include)
 
  - The API and functions are inspired by Rust and Javascript.
 
@@ -80,20 +81,6 @@ matchedString, index, err := Find(list, func(item string) bool {
 matchedStruct, index, err := Find(list, func(item MyStruct) bool {
   return item == searchingStruct
 })
-```
-
-## Exist
-
-![goterators-Exist](https://user-images.githubusercontent.com/1828895/147876367-c0c7fd50-1888-4152-a7c8-5960ca26b6d9.png)
-
- - Exist function checks the existence of an element in the list.
-
-```go
-matchedInt, err := Exist(list, 1)
-
-matchedString, err := Exist(list, "searching string")
-
-matchedStruct, err := Exist(list, SearchingStruct)
 ```
 
 ## Reduce
@@ -215,6 +202,33 @@ groups := Group(list, func(item Product) groupKey {
 
 ```go
 output := Flat([][]int{{1,2}, {3}}) // output = {1,2,3}
+```
+
+## Exist
+
+![goterators-Exist](https://user-images.githubusercontent.com/1828895/147876367-c0c7fd50-1888-4152-a7c8-5960ca26b6d9.png)
+
+ - Exist function checks the existence of an element in the list.
+
+```go
+matchedInt, err := Exist(list, 1)
+
+matchedString, err := Exist(list, "searching string")
+
+matchedStruct, err := Exist(list, SearchingStruct)
+```
+
+## Include
+
+![goterators-Include](https://user-images.githubusercontent.com/1828895/148116952-5dc83d95-5bbb-4c5c-9656-f82c674e0e01.png)
+
+ - Include check if source list contains all items from the sub-list item.
+
+```go
+list := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+subList := []int{8, 15, 19}
+result := Include(list, subList)
+fmt.Println("Include: ", result)
 ```
 
 # License
