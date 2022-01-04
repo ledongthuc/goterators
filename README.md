@@ -16,6 +16,7 @@
    - [flat](#flat)
    - [exist](#exist)
    - [include](#include)
+   - [include some](#include-some)
 
  - The API and functions are inspired by Rust and Javascript.
 
