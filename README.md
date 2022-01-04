@@ -231,6 +231,19 @@ result := Include(list, subList)
 fmt.Println("Include: ", result)
 ```
 
+## IncludeSome
+
+![goterators-IncludeSome](https://user-images.githubusercontent.com/1828895/148118414-6e89942b-6b7f-451a-8ee2-965edf413f0a.png)
+
+ - IncludeSome check if source list contains any items from the sub-list item.
+
+```go
+list := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+subList := []int{8, 15, 19}
+result := IncludeSome(list, subList)
+fmt.Println("IncludeSome: ", result)
+```
+
 # License
 
 MIT
