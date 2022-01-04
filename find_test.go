@@ -1,6 +1,9 @@
 package goterators
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestFindInt(t *testing.T) {
 	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
@@ -54,4 +57,12 @@ func TestFindString(t *testing.T) {
 	if err == nil {
 		t.Errorf("Find item2 = %v, expected <not_found>, got = no-error", expectedItem1)
 	}
+}
+
+func ExampleFind(t *testing.T) {
+	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+	firstFoundItem, index, _ := Find(testSource, func(item int) bool {
+		return item%10 == 0
+	})
+	fmt.Println("Find: ", firstFoundItem, index)
 }

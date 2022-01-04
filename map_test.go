@@ -1,6 +1,7 @@
 package goterators
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -27,4 +28,12 @@ func TestMap(t *testing.T) {
 			t.Errorf("Index %v, expected = %v, actual = %v", index, expectedItems[index], mappedItems[index])
 		}
 	}
+}
+
+func ExampleMap(t *testing.T) {
+	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+	mappedItems := Map(testSource, func(item int) string {
+		return fmt.Sprintf("Item-%d", item)
+	})
+	fmt.Println("Map: ", mappedItems)
 }

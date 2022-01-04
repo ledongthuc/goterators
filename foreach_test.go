@@ -1,6 +1,9 @@
 package goterators
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestForEach(t *testing.T) {
 	testForEach([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, t)
@@ -22,4 +25,11 @@ func testForEach[K comparable](source []K, t *testing.T) {
 	if indexCounter != len(source) {
 		t.Fatalf("Expected number of items = %v, but got =  %v", len(source), indexCounter)
 	}
+}
+
+func ExampleForEach(t *testing.T) {
+	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+	ForEach(testSource, func(item int) {
+		fmt.Println("ForEach: ", item)
+	})
 }

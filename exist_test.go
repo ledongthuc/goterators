@@ -1,6 +1,9 @@
 package goterators
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestExistInt(t *testing.T) {
 	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
@@ -28,4 +31,9 @@ func TestExistString(t *testing.T) {
 	if existed := Exist(testSource, expectedItem2); existed {
 		t.Errorf("Exist item2 = %v, Expected = not_found , got = found", expectedItem1)
 	}
+}
+
+func ExampleExist(t *testing.T) {
+	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+	fmt.Println("Exist: ", Exist(testSource, 15))
 }
