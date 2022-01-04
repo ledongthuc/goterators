@@ -232,7 +232,7 @@ result := Include(list, subList)
 fmt.Println("Include: ", result)
 ```
 
-## IncludeSome
+## Include some
 
 ![goterators-IncludeSome](https://user-images.githubusercontent.com/1828895/148118414-6e89942b-6b7f-451a-8ee2-965edf413f0a.png)
 
