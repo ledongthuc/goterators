@@ -17,7 +17,10 @@
    - [exist](#exist)
    - [include](#include)
    - [include some](#include-some)
+   - [sum](#sum)
+   - [average](#average)
 
+ - Support generic functions that fit with all your types.
  - The API and functions are inspired by Rust and Javascript.
 
 # Requirement
@@ -93,6 +96,7 @@ matchedStruct, index, err := Find(list, func(item MyStruct) bool {
    - list: source list we want to process.
    - initial value: the previous value that's used in the reducer call of the first element. At this time, previous = initial value, current = first element of the list.
    - reducer function: the function will run on all elements of the source list.
+ - Can use Reduce() or ReduceLeft() or FoldLeft()
 
 ```go
 // Sum
@@ -115,6 +119,7 @@ items := Reduce(testSource, []float64{}, func(previous []float64, current int, i
    - list: source list we want to process.
    - initial value: the previous value that's used in the reducer call of the last element. At this time, previous = initial value, current = last element of list.
    - reducer function: the function will run on all elements of the source list.
+ - Can use ReduceRight() or FoldRight()
 
 ```go
 // Reverse
@@ -243,6 +248,30 @@ list := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 subList := []int{8, 15, 19}
 result := IncludeSome(list, subList)
 fmt.Println("IncludeSome: ", result)
+```
+
+## Sum
+
+![goterators-Sum](https://user-images.githubusercontent.com/1828895/148277403-70da16a7-5314-42d0-a9bf-c59bc3f0cba5.png)
+
+ - Sum plus all item from source list
+
+```go
+testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+fmt.Println("Sum: ", Sum(testSource))
+```
+
+## Average
+
+![goterators-Average](https://user-images.githubusercontent.com/1828895/148277508-66a08f9e-22ec-4e04-8808-69bee8649871.png)
+
+ - Average sum of all the source list divided by the total number of source list
+ - We can use Average() or Mean()
+
+```go
+testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+fmt.Println("Average: ", Average(testSource))
+fmt.Println("Mean: ", Mean(testSource))
 ```
 
 # License
