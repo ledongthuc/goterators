@@ -41,7 +41,7 @@ This assumes you already have a working Go environment.
 Use Go get to pull goterators for using
 
 ```
-go get github.com/ledongthuc/goterators
+go get -u github.com/ledongthuc/goterators
 ```
 
 # Usage
