@@ -24,6 +24,7 @@
    - [average](#average)
    - [max](#max)
    - [min](#min)
+   - [median](#median)
    - [range](#range)
    - [mid range](#mid-range)
 
