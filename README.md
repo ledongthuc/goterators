@@ -17,8 +17,15 @@
    - [exist](#exist)
    - [include](#include)
    - [include some](#include-some)
+   - [count](#count)
+   - [count list](#count-list)
+   - [mode](#mode)
    - [sum](#sum)
    - [average](#average)
+   - [max](#max)
+   - [min](#min)
+   - [range](#range)
+   - [mid range](#mid-range)
 
  - Support generic functions that fit with all your types.
  - The API and functions are inspired by Rust and Javascript.
@@ -250,6 +257,40 @@ result := IncludeSome(list, subList)
 fmt.Println("IncludeSome: ", result)
 ```
 
+## Count
+
+![goterators-Count](https://user-images.githubusercontent.com/1828895/148364553-384b5dfd-404e-4c58-98d4-e4ea5a8b108c.png)
+
+ - Count returns number of checking item exists in source list
+
+```go
+testSource := []int{1, 1, 1, 2, 2, 3, 3, 3, 3, 4}
+fmt.Println("Count: ", Count(testSource, 3))
+```
+
+## Count list
+
+![goterators-CountList](https://user-images.githubusercontent.com/1828895/148364711-68ad21bf-24f7-4db3-bd00-71153130252d.png)
+
+ - CountList returns sub-list counter of input sub-list that want to count from source list.
+
+```go
+testSource := []int{1, 1, 1, 2, 2, 3, 3, 3, 3, 4}
+fmt.Println("CountList: ", CountList(testSource, []int{1, 1, 2, 3, 5}))
+```
+
+## Mode
+
+![goterators-Mode](https://user-images.githubusercontent.com/1828895/148366681-67050e42-9970-425f-a960-c2d76914a501.png)
+
+ - Mode return a value that appears most often in the source list.
+
+```go
+testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+mostOftenValue, counter := Mode(testSource)
+fmt.Println("Mode: ", mostOftenValue, counter)
+```
+
 ## Sum
 
 ![goterators-Sum](https://user-images.githubusercontent.com/1828895/148277403-70da16a7-5314-42d0-a9bf-c59bc3f0cba5.png)
@@ -272,6 +313,64 @@ fmt.Println("Sum: ", Sum(testSource))
 testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 fmt.Println("Average: ", Average(testSource))
 fmt.Println("Mean: ", Mean(testSource))
+```
+
+## Max
+
+![goterators-Max](https://user-images.githubusercontent.com/1828895/148365002-57f7c80e-4901-4a97-abe0-9fe38f9e9382.png)
+
+ - Max find largest value from source list
+
+```go
+testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
+result, err := Max(testSource)
+fmt.Println("Max: ", result)
+```
+
+## Min
+
+![goterators-Min](https://user-images.githubusercontent.com/1828895/148365126-883eacc6-b062-444d-afa5-d05606d79a66.png)
+
+ - Min find smallest value from source list
+
+```go
+testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
+result, _ := Min(testSource)
+fmt.Println("Min: ", result)
+```
+
+## Median
+
+![goterators-Median](https://user-images.githubusercontent.com/1828895/148365514-4adb7c24-8458-4181-b401-fbebfe5b64de.png)
+
+ - Median return a value in the middle of an ordered source list. If number of item in source is even, return right item. Make sure source list are sorted
+
+```go
+testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+median, index, _ := Median(testSource)
+fmt.Println("Median: ", median, ", with index: ", index)
+```
+
+## Range
+
+![goterators-Range](https://user-images.githubusercontent.com/1828895/148365855-fedf833e-7c40-42d7-a331-3d1f6ce7cdde.png)
+
+ - Range return max - min
+
+```go
+testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
+fmt.Println("Range: ", Range(testSource))
+```
+
+## Mid range
+
+![goterators-MidRange](https://user-images.githubusercontent.com/1828895/148366240-a15b9c96-8edf-418c-a284-5d54fd2c91a6.png)
+
+ - MidRange return (max + min) / 2
+
+```go
+testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
+fmt.Println("Range: ", Range(testSource))
 ```
 
 # License
