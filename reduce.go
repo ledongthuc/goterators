@@ -13,3 +13,13 @@ func Reduce[T1 any, T2 any](source []T1, initialValue T2, reducer func(previousV
 	}
 	return output
 }
+
+// ReduceLeft is same with Reduce()
+func ReduceLeft[T1 any, T2 any](source []T1, initialValue T2, reducer func(previousValue T2, currentValue T1, currentIndex int, list []T1) T2) T2 {
+	return Reduce(source, initialValue, reducer)
+}
+
+// FoldLeft is same with Reduce()
+func FoldLeft[T1 any, T2 any](source []T1, initialValue T2, reducer func(previousValue T2, currentValue T1, currentIndex int, list []T1) T2) T2 {
+	return Reduce(source, initialValue, reducer)
+}
