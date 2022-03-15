@@ -66,15 +66,15 @@ import "github.com/ledongthuc/goterators"
  - For-each function does the same `for` in Go. Just another option to loop through items in a list.
 
 ```go
-ForEach(list1, func(item int) {
+goterators.ForEach(list1, func(item int) {
   // handle each item in the list
 })
 
-ForEach(list2, func(item string) {
+goterators.ForEach(list2, func(item string) {
   // handle each item in the list
 })
 
-ForEach(list3, func(item MyStruct) {
+goterators.ForEach(list3, func(item MyStruct) {
   // handle each item in the list
 })
 ```
@@ -86,15 +86,15 @@ ForEach(list3, func(item MyStruct) {
  - Find function returns the first element and its index in the list that meets the functional condition. If no element meet the condition function, return the error "Not Found".
 
 ```go
-matchedInt, index, err := Find(list, func(item int) bool {
+matchedInt, index, err := goterators.Find(list, func(item int) bool {
   return item == 1
 })
 
-matchedString, index, err := Find(list, func(item string) bool {
+matchedString, index, err := goterators.Find(list, func(item string) bool {
   return item == "searching text"
 })
 
-matchedStruct, index, err := Find(list, func(item MyStruct) bool {
+matchedStruct, index, err := goterators.Find(list, func(item MyStruct) bool {
   return item == searchingStruct
 })
 ```
@@ -112,12 +112,12 @@ matchedStruct, index, err := Find(list, func(item MyStruct) bool {
 
 ```go
 // Sum
-total := Reduce(list, 0, func(previous int, current int, index int, list []int) int {
+total := goterators.Reduce(list, 0, func(previous int, current int, index int, list []int) int {
 	return previous + current
 })
 
 // Mapping ints to floats
-items := Reduce(testSource, []float64{}, func(previous []float64, current int, index int, list []int) []float64 {
+items := goterators.Reduce(testSource, []float64{}, func(previous []float64, current int, index int, list []int) []float64 {
 	return append(previous, float64(current))
 })
 ```
@@ -135,7 +135,7 @@ items := Reduce(testSource, []float64{}, func(previous []float64, current int, i
 
 ```go
 // Reverse
-reversedList := Reduce(list, []string{}, func(previous []string, current string, index int, list []string) []string {
+reversedList := goterators.Reduce(list, []string{}, func(previous []string, current string, index int, list []string) []string {
   return append(list, current)
 })
 ```
@@ -147,15 +147,15 @@ reversedList := Reduce(list, []string{}, func(previous []string, current string,
  - Filter function return items that pass the filter function.
 
 ```go
-filteredItems, err := Filter(list, func(item int) bool {
+filteredItems, err := goterators.Filter(list, func(item int) bool {
   return item % 2 == 0
 })
 
-filteredItems, err := Filter(list, func(item string) bool {
+filteredItems, err := goterators.Filter(list, func(item string) bool {
   return item.Contains("ValidWord")
 })
 
-filteredItems, err := Filter(list, func(item MyStruct) bool {
+filteredItems, err := goterators.Filter(list, func(item MyStruct) bool {
   return item.Valid()
 })
 ```
@@ -167,11 +167,11 @@ filteredItems, err := Filter(list, func(item MyStruct) bool {
  - Map function converts items in the list to the output list.
 
 ```go
-mappedItems := Map(testSource, func(item int64) float64 {
+mappedItems := goterators.Map(testSource, func(item int64) float64 {
   return float64(item)
 })
 
-prices := Map(testSource, func(item Order) Price {
+prices := goterators.Map(testSource, func(item Order) Price {
   return item.GetPrice()
 })
 ```
@@ -183,9 +183,9 @@ prices := Map(testSource, func(item Order) Price {
  - Every function checks all elements in the list with condition function. If it's yes return true; otherwise, return false.
 
 ```go
-valid := Every(list, func(item int) bool { item % 2 == 0 }) 
+valid := goterators.Every(list, func(item int) bool { item % 2 == 0 }) 
 
-valid := Every(list, func(item string) bool { len(item) < 20 }) 
+valid := goterators.Every(list, func(item string) bool { len(item) < 20 }) 
 ```
 
 ## Some
@@ -195,9 +195,9 @@ valid := Every(list, func(item string) bool { len(item) < 20 })
  - Some function check at least one element in the list meet the condition; return true, or return false if all elements don't meet the condition.
 
 ```go
-valid := Some(list, func(item int) bool { item % 2 == 0 }) 
+valid := goterators.Some(list, func(item int) bool { item % 2 == 0 }) 
 
-valid := Some(list, func(item string) bool { len(item) < 20 }) 
+valid := goterators.Some(list, func(item string) bool { len(item) < 20 }) 
 ```
 
 ## Group
@@ -207,7 +207,7 @@ valid := Some(list, func(item string) bool { len(item) < 20 })
  - Group groups elements into the nested level. Use a build-group function to define group type.
 
 ```
-groups := Group(list, func(item Product) groupKey {
+groups := goterators.Group(list, func(item Product) groupKey {
    return item.ComposeGroupKey()
 }) // Group contains [ [ Product1, Product2, Product3 ], [ Product4, Product5 ] ]
 ```
@@ -219,7 +219,7 @@ groups := Group(list, func(item Product) groupKey {
  - Flat returns a new array with all sub-array elements concatenated with 1 level depth.
 
 ```go
-output := Flat([][]int{{1,2}, {3}}) // output = {1,2,3}
+output := goterators.Flat([][]int{{1,2}, {3}}) // output = {1,2,3}
 ```
 
 ## Exist
@@ -229,11 +229,11 @@ output := Flat([][]int{{1,2}, {3}}) // output = {1,2,3}
  - Exist function checks the existence of an element in the list.
 
 ```go
-matchedInt, err := Exist(list, 1)
+matchedInt, err := goterators.Exist(list, 1)
 
-matchedString, err := Exist(list, "searching string")
+matchedString, err := goterators.Exist(list, "searching string")
 
-matchedStruct, err := Exist(list, SearchingStruct)
+matchedStruct, err := goterators.Exist(list, SearchingStruct)
 ```
 
 ## Include
@@ -245,7 +245,7 @@ matchedStruct, err := Exist(list, SearchingStruct)
 ```go
 list := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 subList := []int{8, 15, 19}
-result := Include(list, subList)
+result := goterators.Include(list, subList)
 fmt.Println("Include: ", result)
 ```
 
@@ -258,7 +258,7 @@ fmt.Println("Include: ", result)
 ```go
 list := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 subList := []int{8, 15, 19}
-result := IncludeSome(list, subList)
+result := goterators.IncludeSome(list, subList)
 fmt.Println("IncludeSome: ", result)
 ```
 
@@ -270,7 +270,7 @@ fmt.Println("IncludeSome: ", result)
 
 ```go
 testSource := []int{1, 1, 1, 2, 2, 3, 3, 3, 3, 4}
-fmt.Println("Count: ", Count(testSource, 3))
+fmt.Println("Count: ", goterators.Count(testSource, 3))
 ```
 
 ## Count list
@@ -281,7 +281,7 @@ fmt.Println("Count: ", Count(testSource, 3))
 
 ```go
 testSource := []int{1, 1, 1, 2, 2, 3, 3, 3, 3, 4}
-fmt.Println("CountList: ", CountList(testSource, []int{1, 1, 2, 3, 5}))
+fmt.Println("CountList: ", goterators.CountList(testSource, []int{1, 1, 2, 3, 5}))
 ```
 
 ## Mode
@@ -292,7 +292,7 @@ fmt.Println("CountList: ", CountList(testSource, []int{1, 1, 2, 3, 5}))
 
 ```go
 testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-mostOftenValue, counter := Mode(testSource)
+mostOftenValue, counter := goterators.Mode(testSource)
 fmt.Println("Mode: ", mostOftenValue, counter)
 ```
 
@@ -304,7 +304,7 @@ fmt.Println("Mode: ", mostOftenValue, counter)
 
 ```go
 testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-fmt.Println("Sum: ", Sum(testSource))
+fmt.Println("Sum: ", goterators.Sum(testSource))
 ```
 
 ## Average
@@ -316,8 +316,8 @@ fmt.Println("Sum: ", Sum(testSource))
 
 ```go
 testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-fmt.Println("Average: ", Average(testSource))
-fmt.Println("Mean: ", Mean(testSource))
+fmt.Println("Average: ", goterators.Average(testSource))
+fmt.Println("Mean: ", goterators.Mean(testSource))
 ```
 
 ## Max
@@ -328,7 +328,7 @@ fmt.Println("Mean: ", Mean(testSource))
 
 ```go
 testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
-result, err := Max(testSource)
+result, err := goterators.Max(testSource)
 fmt.Println("Max: ", result)
 ```
 
@@ -340,7 +340,7 @@ fmt.Println("Max: ", result)
 
 ```go
 testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
-result, _ := Min(testSource)
+result, _ := goterators.Min(testSource)
 fmt.Println("Min: ", result)
 ```
 
@@ -352,7 +352,7 @@ fmt.Println("Min: ", result)
 
 ```go
 testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-median, index, _ := Median(testSource)
+median, index, _ := goterators.Median(testSource)
 fmt.Println("Median: ", median, ", with index: ", index)
 ```
 
@@ -364,7 +364,7 @@ fmt.Println("Median: ", median, ", with index: ", index)
 
 ```go
 testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
-fmt.Println("Range: ", Range(testSource))
+fmt.Println("Range: ", goterators.Range(testSource))
 ```
 
 ## Mid range
@@ -375,7 +375,7 @@ fmt.Println("Range: ", Range(testSource))
 
 ```go
 testSource := []int{20, 17, 9, 21, 18, 3, 11, 5}
-fmt.Println("Range: ", Range(testSource))
+fmt.Println("Range: ", goterators.Range(testSource))
 ```
 
 # License
