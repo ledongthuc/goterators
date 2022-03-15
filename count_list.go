@@ -1,6 +1,6 @@
 package goterators
 
-import "constraints"
+import "golang.org/x/exp/constraints"
 
 // CountList returns sub-list counter of input sub-list that want to count from source list.
 func CountList[T constraints.Ordered](source []T, checkedItems []T) []int {

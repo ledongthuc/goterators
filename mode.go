@@ -1,6 +1,6 @@
 package goterators
 
-import "constraints"
+import "golang.org/x/exp/constraints"
 
 // Mode return a value that appears most often in the source list.
 func Mode[T constraints.Ordered](source []T) (T, int) {

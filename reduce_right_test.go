@@ -22,7 +22,7 @@ func TestReduceRight(t *testing.T) {
 	}
 }
 
-func ExampleReduceRight(t *testing.T) {
+func ExampleReduceRight() {
 	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 	result := ReduceRight(testSource, []int{}, func(previous []int, current int, index int, list []int) []int {
 		return append(previous, current)

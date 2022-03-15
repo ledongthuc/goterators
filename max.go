@@ -1,6 +1,6 @@
 package goterators
 
-import "constraints"
+import "golang.org/x/exp/constraints"
 
 // Max find largest value from source list
 func Max[T constraints.Ordered](source []T) (result T, err error) {

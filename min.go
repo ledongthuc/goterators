@@ -1,6 +1,6 @@
 package goterators
 
-import "constraints"
+import "golang.org/x/exp/constraints"
 
 // Min find smallest value from source list
 func Min[T constraints.Ordered](source []T) (result T, err error) {

@@ -18,16 +18,13 @@ jobs:
     - name: Install dependencies
       run: |
         go version
-        cd server; go mod tidy
+        go mod tidy
     - name: Run build
       run: |
-        cd server
         go build . 
     - name: Run testing
       run: |
-        cd server
         go test -v
     - name: Run vetting
       run: |
-        cd server
         go vet -v ./...

@@ -34,7 +34,7 @@ func TestReduceSimulateMap(t *testing.T) {
 	}
 }
 
-func ExampleReduce(t *testing.T) {
+func ExampleReduce() {
 	testSource := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 	result := Reduce(testSource, 0, func(previous int, current int, index int, list []int) int {
 		return previous + current

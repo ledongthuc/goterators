@@ -1,5 +1,5 @@
 # Goterators
-[![Built with WeBuild](https://raw.githubusercontent.com/webuild-community/badge/master/svg/WeBuild.svg)](https://webuild.community) [![Go Reference](https://pkg.go.dev/badge/github.com/ledongthuc/goterators.svg)](https://pkg.go.dev/github.com/ledongthuc/goterators)
+[![Built with WeBuild](https://raw.githubusercontent.com/webuild-community/badge/master/svg/WeBuild.svg)](https://webuild.community) [![Go Reference](https://pkg.go.dev/badge/github.com/ledongthuc/goterators.svg)](https://pkg.go.dev/github.com/ledongthuc/goterators) [![goterators-Build](https://github.com/ledongthuc/goterators/actions/workflows/build.yml/badge.svg)](https://github.com/ledongthuc/goterators/actions/workflows/build.yml)
 
 ![goterators-Thumbnail](https://user-images.githubusercontent.com/1828895/147876484-5bc7cfd0-5f14-4889-a3f0-64cb307b7765.png)
 
