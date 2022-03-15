@@ -3,20 +3,25 @@
 
 ![goterators-Thumbnail](https://user-images.githubusercontent.com/1828895/147876484-5bc7cfd0-5f14-4889-a3f0-64cb307b7765.png)
 
- - Goterators is util library that support aggregate & transforms functions list in Go, including:
+ - Goterators is util library that support aggregate & transforms functions list in Go.
+ - Iterate:
    - [for-each](#for-each)
    - [find](#find)
    - [reduce](#reduce)
    - [reduce right](#reduce-right)
    - [filter](#filter)
    - [map](#map)
+   - [flat](#flat)
+
+ - Condition:
    - [every](#every)
    - [some](#some)
    - [group](#group)
-   - [flat](#flat)
    - [exist](#exist)
    - [include](#include)
    - [include some](#include-some)
+
+ - Aggregate:
    - [count](#count)
    - [count list](#count-list)
    - [mode](#mode)
