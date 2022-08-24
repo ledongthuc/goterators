@@ -148,15 +148,15 @@ reversedList := goterators.Reduce(list, []string{}, func(previous []string, curr
  - Filter function return items that pass the filter function.
 
 ```go
-filteredItems, err := goterators.Filter(list, func(item int) bool {
+filteredItems := goterators.Filter(list, func(item int) bool {
   return item % 2 == 0
 })
 
-filteredItems, err := goterators.Filter(list, func(item string) bool {
+filteredItems := goterators.Filter(list, func(item string) bool {
   return item.Contains("ValidWord")
 })
 
-filteredItems, err := goterators.Filter(list, func(item MyStruct) bool {
+filteredItems := goterators.Filter(list, func(item MyStruct) bool {
   return item.Valid()
 })
 ```
